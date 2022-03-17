@@ -1,12 +1,11 @@
 package com.company;
 
 import java.util.Scanner;
-public class Main {
+public class Menu {
 
-    public static void main(String[] args) {
+    public Menu() {
         // write your code here
-        Scanner scanner;
-        scanner = new scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Menu");
         System.out.println("1) Lijst met examens");
@@ -20,6 +19,22 @@ public class Main {
         System.out.println("0) Exit");
         System.out.println("Uw keuze:");
         int input = scanner.nextInt();
+        if (input == 1) {
+            examens();
+
+        } 
+
+
+
+    }
+
+    private void examens() {
+        String[] examen = {"Verkeersexamen_1", "Verkeersexamen_2"};
+        System.out.println("1) Lijst met examens");
+        for (int i = 0; i < examen.length; i++) {
+            System.out.println(examen[i]);
+        }
+
 
     }
 }
