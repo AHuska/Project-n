@@ -10,7 +10,7 @@ public class Menu {
         System.out.println("Menu");
         System.out.println("1) Lijst met examens");
         System.out.println("2) Lijst met studenten");
-        System.out.println("3) Nieuwe student inschrijven");
+       System.out.println("3) Nieuwe student inschrijven");
         System.out.println("4) Student verwijderen");
         System.out.println("5) Examen afnemen");
         System.out.println("6) Is student geslaagd voor test?");
