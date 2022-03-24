@@ -48,7 +48,7 @@ public class Main {
     private static void shutdown() {
         try {
             // create Student object
-            List<Student> users = Arrays.asList(
+            List<Student> studentList = Arrays.asList(
                     new Student("floor", 1),
                     new Student("alexander", 2),
                     new Student("shuang", 3),
@@ -60,16 +60,19 @@ public class Main {
             Gson gson = new Gson();
 
             // create a writer
-            File student = new File("src/main/resources/json/students.json");
-            if (student.createNewFile()) {
-                System.out.println("The file is created with the name: " + student.getName());
-            } else{
-                System.out.println("changes saved");
-            }
+            File students = new File("src/main/resources/json/students.json");
+
             Writer writer = Files.newBufferedWriter(Paths.get("src/main/resources/json/students.json"));
 
-            // convert book object to JSON file
-            gson.toJson(users, writer);
+            if (students.createNewFile()) {
+                System.out.println("The file is created with the name: " + students.getName());
+            } else{
+                System.out.println("changes to students saved");
+            }
+
+
+            // convert student list to JSON file
+            gson.toJson(studentList, writer);
 
             // close writer
             writer.close();
