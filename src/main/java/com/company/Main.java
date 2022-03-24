@@ -32,10 +32,10 @@ public class Main {
             Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/json/students.json"));
 
             // convert JSON string to User object
-            List<Student> users = new Gson().fromJson(reader, new TypeToken<List<Student>>() {}.getType());
+            List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>() {}.getType());
 
             // print user object
-            users.forEach((Student) -> System.out.println(Student.getName()));
+            students.forEach((Student) -> System.out.println(Student.getName()));
 
             // close reader
             reader.close();
