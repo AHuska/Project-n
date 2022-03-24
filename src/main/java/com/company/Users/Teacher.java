@@ -50,6 +50,8 @@ public class Teacher extends User {
         int input = scanner.nextInt();
         if(input == 1){
             System.out.println("Nieuwe student geaccepteerd.");
+            Student student = new Student(studentName,studentID);
+            student.save();
             return;
         }else if(input == 2){
             generateStudent();
