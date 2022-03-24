@@ -18,6 +18,7 @@ public class Menu {
         System.out.println("8) Welke student heeft de meeste examens gehaald?");
         System.out.println("0) Exit");
         System.out.println("Uw keuze:");
+
         int input = scanner.nextInt();
 
         //if statement voor invoeren van de cijfers
