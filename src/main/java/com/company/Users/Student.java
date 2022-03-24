@@ -6,5 +6,7 @@ public class Student extends User{
          this.name = name;
          this.identificatieCode= identificatieCode;
      }
-
+    static private ArrayList <Student> GeefStudentenTerug(){
+         return AlleStudenten;
+    }
 }
