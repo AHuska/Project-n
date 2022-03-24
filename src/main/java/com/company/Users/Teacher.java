@@ -9,7 +9,6 @@ public class Teacher extends User{
     static private ArrayList <Teacher> GeefTeachersTerug(){
         return AlleTeachers;
     }
-
     //
 
 }
