@@ -35,6 +35,15 @@ public class Main {
 
             // convert JSON string to User object
             List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>() {}.getType());
+            List<Student> docenten = new Gson().fromJson(reader, new TypeToken<List<Teacher>>() {}.getType());
+            List<Student> exams = new Gson().fromJson(reader, new TypeToken<List<Exam>>() {}.getType());
+
+            // save objects to their "all" arrays
+            students.forEach((student) -> student.save());
+            docenten.forEach((teacher) -> teacher.save());
+            exams.forEach((exam) -> exam.save());
+
+
 
             // close reader
             reader.close();
