@@ -1,5 +1,12 @@
 package com.company.Users;
 
 public class User {
-    private String name;
+    protected String name;
+    protected Integer identificatieCode;
+
+    public String getName(){
+        return name;
+    }
+
 }
+
