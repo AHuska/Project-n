@@ -12,7 +12,7 @@ public class Question {
     public void setType() {
         System.out.println("kies uit onderstaande vragen wat je wilt maken");
         System.out.println("1.Meerkeuzevvragen");
-        System.out.println("2.Openvragen");
+        System.out.println("2.Openvragen");  
         System.out.println("3.Ja of nee vragen");
         Scanner scanner = new Scanner(System.in);
         int invoer = scanner.nextInt();
