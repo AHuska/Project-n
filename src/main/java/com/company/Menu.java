@@ -25,7 +25,7 @@ public class Menu {
         int input = scanner.nextInt();
 
         //if statement voor invoeren van de cijfers
-        /* if (input == 1) {
+         /*if (input == 1) {
 
             examens();
         }
@@ -60,7 +60,8 @@ public class Menu {
         // switch statement voor invoeren van de cijfers
         switch (input) {
             case 1:
-                System.out.println("1) Lijst met examens \n--------------------");
+                examens();
+                ;
                 break;
 
             case 2:
@@ -95,6 +96,10 @@ public class Menu {
             case 0:
                 System.out.println("0) Exit \n-------");
                 break;
+
+            default :
+                System.out.println("Geen correcte invoer,probeer opnieuw.");
+
         }
     }
 
