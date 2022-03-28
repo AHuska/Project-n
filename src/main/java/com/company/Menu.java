@@ -79,8 +79,8 @@ public class Menu {
                 for (Student i : studenten) {
                     System.out.println(i.getName());
                 }
+                Menu.main();
                 break;
-
             case 3:
                 System.out.println("3) Nieuwe student inschrijven \n-----------------------------");
                 Teacher.generateStudent();
