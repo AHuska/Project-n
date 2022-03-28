@@ -1,6 +1,12 @@
 package com.company.Users;
-
-public class Student1 extends User  {
-    
-
+import java.util.ArrayList;
+public class Student extends User{
+    static private ArrayList<Student> AlleStudenten;
+    Student(String name,Integer identificatieCode ){
+        this.name = name;
+        this.identificatieCode= identificatieCode;
+    }
+    static private ArrayList <Student> GeefStudentenTerug(){
+        return AlleStudenten;
+    }
 }
