@@ -1,6 +1,8 @@
 package com.company;
 
+import com.company.Tests.Exam;
 import com.company.Users.Student;
+import com.company.Users.Teacher;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -34,9 +36,6 @@ public class Main {
             // convert JSON string to User object
             List<Student> students = new Gson().fromJson(reader, new TypeToken<List<Student>>() {}.getType());
 
-            // print user object
-            students.forEach((Student) -> System.out.println(Student.getName()));
-
             // close reader
             reader.close();
 
@@ -47,35 +46,38 @@ public class Main {
 
     private static void shutdown() {
         try {
-            // create Student object
-            List<Student> studentList = Arrays.asList(
-                    new Student("floor", 1),
-                    new Student("alexander", 2),
-                    new Student("shuang", 3),
-                    new Student("waihong", 4),
-                    new Student("tommy", 5)
-            );
+            // create object arrays
+            List<Student> studentList = Student.GeefStudentenTerug();
+            List<Teacher> docenteList = Teacher.getAll();
+            List<Exam> examList = Exam.getAll();
 
             // create Gson instance
             Gson gson = new Gson();
 
-            // create a writer
+            // create a writers
             File students = new File("src/main/resources/json/students.json");
+            File docenten = new File("src/main/resources/json/docenten.json");
+            File exams = new File("src/main/resources/json/exams.json");
 
-            Writer writer = Files.newBufferedWriter(Paths.get("src/main/resources/json/students.json"));
+            Writer student = Files.newBufferedWriter(Paths.get("src/main/resources/json/students.json"));
+            Writer teacher = Files.newBufferedWriter(Paths.get("src/main/resources/json/teacher.json"));
+            Writer exam = Files.newBufferedWriter(Paths.get("src/main/resources/json/exam.json"));
 
-            if (students.createNewFile()) {
-                System.out.println("The file is created with the name: " + students.getName());
+            if (students.createNewFile() && docenten.createNewFile() && exams.createNewFile()) {
+                System.out.println("The files is created with the name: " + students.getName() + docenten.getName() + exams.getName());
             } else{
-                System.out.println("changes to students saved");
+                System.out.println("changes to students, teachers and exams have been saved");
             }
 
-
-            // convert student list to JSON file
-            gson.toJson(studentList, writer);
+            // convert lists to JSON files
+            gson.toJson(studentList, student);
+            gson.toJson(docenteList, teacher);
+            gson.toJson(examList, exam);
 
             // close writer
-            writer.close();
+            student.close();
+            teacher.close();
+            exam.close();
 
         } catch (Exception ex) {
             ex.printStackTrace();
