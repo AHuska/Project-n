@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import com.company.Users.Student;
 import com.company.Users.Teacher;
+import java.util.Scanner;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import com.company.Users.Student;
@@ -30,9 +31,10 @@ public class Exam {
 
     }
 
-    static void aanmaken(){
-     System.out.println("Wat voor examen wil je?");
-     
+    static void aanmaken() {
+        System.out.println("Wat voor examen wil je?");
+        Scanner input = new Scanner(System.in);
+        System.out.print
 
     }
 
@@ -41,11 +43,6 @@ public class Exam {
 
     }
 
-    public void nakijken {
-
-
-
-    }
 
     public String Cijferchecken(Integer cijferGehaald) {
         if (cijferGehaald > 5.5) {
@@ -54,13 +51,8 @@ public class Exam {
             return "Gezakt";
         }
     }
+ }
 
 
-    public void feedback (ArrayList<Question> Vragen){
-    for (int i = 0; i < Vragen.size(); i ++){
-         i = Vragen[i];
-
-        }
-
-
+}
     
