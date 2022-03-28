@@ -8,7 +8,7 @@ import com.company.Users.Teacher;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import com.company.Users.Student;
-
+import java.io.*;
 
 
 public class Exam {
@@ -30,12 +30,19 @@ public class Exam {
 
     }
 
+    static void aanmaken(){
+     System.out.println("Wat voor examen wil je?");
+     
+
+    }
+
     public void save() {
         allExamens.add(this);
 
     }
 
     public void nakijken {
+
 
 
     }
@@ -48,4 +55,12 @@ public class Exam {
         }
     }
 
-}
+
+    public void feedback (ArrayList<Question> Vragen){
+    for (int i = 0; i < Vragen.size(); i ++){
+         i = Vragen[i];
+
+        }
+
+
+    
