@@ -18,7 +18,7 @@ public class Main {
 	    // write your code here
         Main.init();
 
-        new Menu();
+        Menu.main();
 
         Main.shutdown();
     }
