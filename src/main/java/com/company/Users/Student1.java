@@ -4,14 +4,16 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Student1 extends User {
-    static private ArrayList<Student1> AlleStudenten = new ArrayList<Student1>();
+    static private ArrayList<Student1> alleStudenten = new ArrayList<Student1>();
 
     private ArrayList<String> vakken;
+    private ArrayList<Integer> cijferLijst;
 
     Student1(String name, Integer identificatieCode) {
         this.name = name;
         this.identificatieCode = identificatieCode;
-        AlleStudenten.add(this);
+        alleStudenten.add(this);
+
     }
 
     public void inschrijving() {
@@ -36,7 +38,7 @@ public class Student1 extends User {
 
 
     static private ArrayList<Student1> GeefStudentenTerug() {
-        return AlleStudenten;
+        return alleStudenten;
     }
 
     public ArrayList<String> getVakken() {
