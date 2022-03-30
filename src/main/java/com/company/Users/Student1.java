@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Student1 extends User {
-    static private ArrayList<Student1> AlleStudenten;
+    static private ArrayList<Student1> AlleStudenten = new ArrayList<Student1>();
 
     private ArrayList<String> vakken;
 
@@ -17,12 +17,12 @@ public class Student1 extends User {
     public void inschrijving() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voor welk vak wilt u zich inschrijven? ");
-        String invoer = Scanner.nextLine();
+        String invoer = scanner.nextLine();
         vakken.add(invoer);
         System.out.println("Uw vak is toegevoegd, wilt u meer toevoegen?");
         System.out.println("1) ja");
         System.out.println("2) nee");
-        int retry = Scanner.nextInt();
+        int retry = scanner.nextInt();
         if (retry == 1) {
             Menu.main();
 
@@ -34,11 +34,13 @@ public class Student1 extends User {
         }
     }
 
-}
 
     static private ArrayList<Student1> GeefStudentenTerug() {
         return AlleStudenten;
     }
 
+    public ArrayList<String> getVakken() {
+        return vakken;
+    }
 }
 
