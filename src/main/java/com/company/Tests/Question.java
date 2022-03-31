@@ -1,21 +1,30 @@
 package com.company.Tests;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Question {
     private String type;
+    private String vraag ;
+    private ArrayList<String> answer;
+    private String correct;
 
-    public Question(){
+    public Question() {
+
+        answer = new ArrayList<String>();
         setType();
 
     }
+
+
     public void setType() {
-        System.out.println("kies uit onderstaande vragen wat je wilt maken");
+        System.out.println("kies uit de onderstaande vragen wat je wilt maken");
         System.out.println("1.Meerkeuzevvragen");
-        System.out.println("2.Openvragen");  
+        System.out.println("2.Openvragen");
         System.out.println("3.Ja of nee vragen");
         Scanner scanner = new Scanner(System.in);
         int invoer = scanner.nextInt();
+        String correct_antwoord = "Null";
         switch (invoer) {
             case 1:
                 this.type = "Meerkeuzevragen";
@@ -24,34 +33,27 @@ public class Question {
                 scanner.nextLine();
                 String meerkeuzevragen = scanner.nextLine();
                 System.out.println("Geef een getal tussen 3-4, voor het aantal mogelijkheden");
+
                 int aantal = scanner.nextInt();
 
                 if (aantal == 3) {
-                    System.out.println("Antwoord A:");
-                    scanner.nextLine();
-                    String A = scanner.nextLine();
-                    System.out.println("Antwoord B:");
-                    String B = scanner.nextLine();
-                    System.out.println("Antwoord C:");
-                    String C = scanner.nextLine();
+                    meerkeuze_antwoord();
                     System.out.println("De goede antwoord is:");
-                    String correct_antwoord = scanner.nextLine();
+                     correct_antwoord = scanner.nextLine();
+                     correct = correct_antwoord;
                 } else if (aantal == 4) {
-                    scanner.nextLine();
-                    System.out.println("Antwoord A:");
-                    String A = scanner.nextLine();
-                    System.out.println("Antwoord B:");
-                    String B = scanner.nextLine();
-                    System.out.println("Antwoord C:");
-                    String C = scanner.nextLine();
+                    meerkeuze_antwoord();
                     System.out.println("Antwoord D");
                     String D = scanner.nextLine();
                     System.out.println("De goede antwoord is:");
-                    String correct_antwoord = scanner.nextLine();
+                     correct_antwoord = scanner.nextLine();
+                    correct = correct_antwoord;
+
                 } else {
                     System.out.println("Geen correct invoer, probeer opnieuw");
                 }
-
+                setVraag(meerkeuzevragen);
+                setAnswer(correct_antwoord);
 
 
                 break;
@@ -62,6 +64,12 @@ public class Question {
                 System.out.println("Schrijf hier jouw vraag:");
                 scanner.nextLine();
                 String openvragen = scanner.nextLine();
+                System.out.println("De goede antwoord is:");
+                 correct_antwoord = scanner.nextLine();
+                correct = correct_antwoord;
+
+                setVraag(openvragen);
+                setAnswer(correct_antwoord);
 
 
                 break;
@@ -71,6 +79,11 @@ public class Question {
                 System.out.println("Je maakt nu een ja of nee vraag.");
                 System.out.println("Schrijf hier jouw vraag:");
                 String ja_nee_vraag = scanner.nextLine();
+                System.out.println("De goede antwoord is:");
+                 correct_antwoord = scanner.nextLine();
+                correct = correct_antwoord;
+                setVraag(ja_nee_vraag);
+                setAnswer(correct_antwoord);
                 break;
 
             default:
@@ -78,7 +91,33 @@ public class Question {
                 break;
         }
     }
-}
+
+
+
+        public void setVraag(String question) {
+            vraag = question;
+
+
+
+        }
+
+        public void setAnswer(String antwoord ) {
+            ArrayList<String> answer = new ArrayList<String>();
+        }
+
+        public void meerkeuze_antwoord(){
+        Scanner scanner = new Scanner(System.in);
+            System.out.println("Antwoord A:");
+            scanner.nextLine();
+            String A = scanner.nextLine();
+            System.out.println("Antwoord B:");
+            String B = scanner.nextLine();
+            System.out.println("Antwoord C:");
+            String C = scanner.nextLine();
+        }
+    }
+
+
 
 
 
