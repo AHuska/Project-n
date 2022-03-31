@@ -1,19 +1,22 @@
 package com.company;
 
+import com.company.Tests.Exam;
+import com.company.Users.Student;
 import com.company.Users.Teacher;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
 
-    public Menu() {
+    public static void main() {
         // write your code here
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Menu");
         System.out.println("1) Lijst met examens");
         System.out.println("2) Lijst met studenten");
-       System.out.println("3) Nieuwe student inschrijven");
+        System.out.println("3) Nieuwe student inschrijven");
         System.out.println("4) Student verwijderen");
         System.out.println("5) Examen afnemen");
         System.out.println("6) Is student geslaagd voor test?");
@@ -60,14 +63,24 @@ public class Menu {
         // switch statement voor invoeren van de cijfers
         switch (input) {
             case 1:
-                examens();
-                ;
+                System.out.println("1) Lijst met examens");
+                ArrayList<Exam> exams = Exam.getAll();
+                System.out.println("1) Lijst met examens");
+                for (Exam i : exams) {
+                    System.out.println(i.getName());
+                }
+                Menu.main();
                 break;
 
             case 2:
                 System.out.println("2) Lijst met studenten \n----------------------");
-                break;
+                ArrayList<Student> studenten = Student.GeefStudentenTerug();
 
+                for (Student i : studenten) {
+                    System.out.println(i.getName());
+                }
+                Menu.main();
+                break;
             case 3:
                 System.out.println("3) Nieuwe student inschrijven \n-----------------------------");
                 Teacher.generateStudent();
@@ -95,22 +108,10 @@ public class Menu {
                 break;
             case 0:
                 System.out.println("0) Exit \n-------");
-                break;
-
-            default :
+                return;
+            default:
                 System.out.println("Geen correcte invoer,probeer opnieuw.");
 
         }
-    }
-
-
-    private void examens() {
-        String[] examen = {"Verkeersexamen_1", "Verkeersexamen_2"};
-        System.out.println("1) Lijst met examens");
-        for (int i = 0; i < examen.length; i++) {
-            System.out.println(examen[i]);
-        }
-
-
     }
 }
