@@ -1,7 +1,6 @@
 package com.company.Tests;
 
 
-
 import com.company.Users.*;
 import java.util.Scanner;
 import java.lang.reflect.Array;
@@ -18,7 +17,7 @@ public class Exam {
     private Student1 student;
     private Teacher teacher;
     private String vak;
-    private Integer cijferGehaald;
+    private float cijferGehaald;
 
     private Exam(String uniekeNaam, Teacher teacher, Student1 student, String vak) {
         this.uniekeNaam = uniekeNaam;
@@ -49,11 +48,16 @@ public class Exam {
         return  allExamens;
     }
 
-    public String Cijferchecken(Integer cijferGehaald) {
-        if (cijferGehaald > 5.5) {
-            return "Geslaagd";
-        } else {
-            return "Gezakt";
+    public void converterWeging() {
+        int totaal = 0;
+        int behaaldePunten = 0;
+        for ( Question i : vragen) {
+            totaal += i.getWeight();
+            if (i.getResult() == true){
+               behaaldePunten == i.getWeight();
+
+            }
+            cijferGehaald = behaaldePunten/ totaal * 9 + 1;
         }
     }
 
