@@ -1,8 +1,7 @@
 package com.company.Tests;
 
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 import com.company.Users.*;
 import java.util.Scanner;
 import java.lang.reflect.Array;
@@ -14,7 +13,7 @@ import java.io.*;
 public class Exam {
 
     static ArrayList<Exam> allExamens;
-    private ArrayList<Question> Vragen;
+    private ArrayList<Question> vragen;
     private String uniekeNaam;
     private Student1 student;
     private Teacher teacher;
@@ -29,40 +28,26 @@ public class Exam {
 
 
     }
-    static void aanmaken() {
-        System.out.println("Wat voor examen wil je?");
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
 
+    public void  cijferCounting() {
+        int count = 0;
+        for (int i= 0; i< vragen.size(); i++){
+            if (boolean == vragen.get(i)){
+                count ++;
 
-
-
-    }
-    public void initalizearray(){
-        ArrayList<Exam> initialize = new ArrayList<Exam>(){
-            
-
-
-        };
-
+            }
+        }
 
     }
-
-
-
-
 
     public void save() {
         allExamens.add(this);
 
     }
 
-
     public static ArrayList<Exam> getAllExamens() {
         return  allExamens;
     }
-
-
 
     public String Cijferchecken(Integer cijferGehaald) {
         if (cijferGehaald > 5.5) {
@@ -71,7 +56,11 @@ public class Exam {
             return "Gezakt";
         }
     }
-  }
+
+    public String getUniekeNaam() {
+        return uniekeNaam;
+    }
+}
 
 
 

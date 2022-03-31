@@ -1,5 +1,7 @@
 package com.company.Users;
 
+import com.company.Menu;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -37,12 +39,16 @@ public class Student1 extends User {
     }
 
 
-    static private ArrayList<Student1> GeefStudentenTerug() {
+    static public ArrayList<Student1> GeefStudentenTerug() {
         return alleStudenten;
     }
 
     public ArrayList<String> getVakken() {
         return vakken;
+    }
+
+    public void save() {
+        alleStudenten.add(this);
     }
 }
 

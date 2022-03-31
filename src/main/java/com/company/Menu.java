@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.Tests.Exam;
 import com.company.Users.Student;
+import com.company.Users.Student1;
 import com.company.Users.Teacher;
 
 import java.util.ArrayList;
@@ -64,10 +65,10 @@ public class Menu {
         switch (input) {
             case 1:
                 System.out.println("1) Lijst met examens");
-                ArrayList<Exam> exams = Exam.getAll();
+                ArrayList<Exam> exams = Exam.getAllExamens();
                 System.out.println("1) Lijst met examens");
                 for (Exam i : exams) {
-                    System.out.println(i.getName());
+                    System.out.println(i.getUniekeNaam());
                 }
                 Menu.main();
                 break;

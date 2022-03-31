@@ -57,35 +57,35 @@ public class Main {
         try {
             // create object arrays
             List<Student> studentList = Student.GeefStudentenTerug();
-            List<Teacher> docenteList = Teacher.getAll();
-            List<Exam> examList = Exam.getAll();
+            //List<Teacher> docentenList = Teacher.getAll();
+            List<Exam> examList = Exam.getAllExamens();
 
             // create Gson instance
             Gson gson = new Gson();
 
             // create a writers
             File students = new File("src/main/resources/json/students.json");
-            File docenten = new File("src/main/resources/json/docenten.json");
+           // File docenten = new File("src/main/resources/json/docenten.json");
             File exams = new File("src/main/resources/json/exams.json");
 
             Writer student = Files.newBufferedWriter(Paths.get("src/main/resources/json/students.json"));
-            Writer teacher = Files.newBufferedWriter(Paths.get("src/main/resources/json/teacher.json"));
+            //Writer teacher = Files.newBufferedWriter(Paths.get("src/main/resources/json/teacher.json"));
             Writer exam = Files.newBufferedWriter(Paths.get("src/main/resources/json/exam.json"));
 
-            if (students.createNewFile() && docenten.createNewFile() && exams.createNewFile()) {
-                System.out.println("The files is created with the name: " + students.getName() + docenten.getName() + exams.getName());
+            if (students.createNewFile() && exams.createNewFile()) {
+                System.out.println("The files is created with the name: " + students.getName()  + exams.getName());
             } else{
                 System.out.println("changes to students, teachers and exams have been saved");
             }
 
             // convert lists to JSON files
             gson.toJson(studentList, student);
-            gson.toJson(docenteList, teacher);
+          //  gson.toJson(docentenList, teacher);
             gson.toJson(examList, exam);
 
             // close writer
             student.close();
-            teacher.close();
+         //   teacher.close();
             exam.close();
 
         } catch (Exception ex) {
