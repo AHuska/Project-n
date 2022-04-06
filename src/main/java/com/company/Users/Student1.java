@@ -31,12 +31,12 @@ public class Student1 extends User {
        do {
           Menu.main();
        }  // moet een while loop worden.
-         while  (retry == 2);
+         while  (retry == 1);
 
         do {
             this.inschrijving();
         }
-         while (retry == 1);
+         while (retry == 2);
          {
         do {
             System.out.println("Uw invoer wordt niet herkent.");
