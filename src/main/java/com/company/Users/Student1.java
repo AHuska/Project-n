@@ -1,5 +1,8 @@
 package com.company.Users;
 
+import com.company.Menu;
+import org.junit.Test;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -25,14 +28,26 @@ public class Student1 extends User {
         System.out.println("1) ja");
         System.out.println("2) nee");
         int retry = scanner.nextInt();
-        if (retry == 1) {
-            Menu.main();
+       do {
+          Menu.main();
+       }  // moet een while loop worden.
+         while  (retry == 2);
 
-        } else if (retry == 2) {
+        do {
             this.inschrijving();
-        } else {
+        }
+         while (retry == 1);
+         {
+        do {
             System.out.println("Uw invoer wordt niet herkent.");
             Menu.main();
+        }
+            while(retry !=2);
+             do {
+                 System.out.println("Uw invoer wordt niet herkent.");
+                 Menu.main();
+             }
+             while(retry !=1);
         }
     }
 
@@ -44,5 +59,6 @@ public class Student1 extends User {
     public ArrayList<String> getVakken() {
         return vakken;
     }
-}
 
+
+}
