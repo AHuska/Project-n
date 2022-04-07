@@ -39,27 +39,30 @@ public class Teacher extends User {
     }
 
     public static void generateStudent() {
+        Boolean active = true;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Wat is de naam van de student?");
-        String studentName = scanner.nextLine();
-        System.out.println("Wat is de identificatiecode van de student?");
-        Integer studentID = scanner.nextInt();
-        System.out.println("New student name: " + studentName + ", New student ID: " + studentID);
-        System.out.println("1) Accepteer nieuwe student.");
-        System.out.println("2) Probeer opnieuw.");
-        System.out.println("0) Exit.");
-        int input = scanner.nextInt();
-        if(input == 1){
-            System.out.println("Nieuwe student geaccepteerd.");
-            Student1 student = new Student1(studentName,studentID);
-            student.save();
-            return;
-        }else if(input == 2){
-            generateStudent();
-        }else if(input == 0){
-            return;
-        }else{
-            System.out.println("Unexpected error. Please check www.hhs.nl for more info.");
+        while(active) {
+            System.out.println("Wat is de naam van de student?");
+            String studentName = scanner.nextLine();
+            System.out.println("Wat is de identificatiecode van de student?");
+            Integer studentID = scanner.nextInt();
+            System.out.println("New student name: " + studentName + ", New student ID: " + studentID);
+            System.out.println("1) Accepteer nieuwe student.");
+            System.out.println("2) Probeer opnieuw.");
+            System.out.println("0) Exit.");
+            int input = scanner.nextInt();
+            if (input == 1) {
+                System.out.println("Nieuwe student geaccepteerd.");
+                Student1 student = new Student1(studentName, studentID);
+                student.save();
+                return;
+            } else if (input == 2) {
+                generateStudent();
+            } else if (input == 0) {
+                return;
+            } else {
+                System.out.println("Unexpected error. Please check www.hhs.nl for more info.");
+            }
         }
     }
 

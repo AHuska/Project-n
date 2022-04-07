@@ -13,6 +13,7 @@ public class Menu {
     public static void main() {
         // write your code here
         Scanner scanner = new Scanner(System.in);
+        Boolean active = true;
 
         System.out.println("Menu");
         System.out.println("1) Lijst met examens");
@@ -27,11 +28,11 @@ public class Menu {
         System.out.println("Uw keuze:");
 
         int input = scanner.nextInt();
-
         switch (input) {
             case 1:
                 System.out.println("1) Lijst met examens");
                 ArrayList<Exam> exams = Exam.getAllExamens();
+                System.out.println("1) Lijst met examens");
                 for (Exam i : exams) {
                     System.out.println(i.getUniekeNaam());
                 }
@@ -74,11 +75,12 @@ public class Menu {
                 break;
             case 0:
                 System.out.println("0) Exit \n-------");
-                return;
+                active = false;
+                break;
             default:
                 System.out.println("Geen correcte invoer,probeer opnieuw.");
 
+
         }
     }
-
 }
