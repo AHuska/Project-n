@@ -20,45 +20,35 @@ public class Student1 extends User {
     }
 
     public void inschrijving() {
+        boolean active = true;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Voor welk vak wilt u zich inschrijven? ");
-        String invoer = scanner.nextLine();
-        vakken.add(invoer);
-        System.out.println("Uw vak is toegevoegd, wilt u meer toevoegen?");
-        System.out.println("1) ja");
-        System.out.println("2) nee");
-        int retry = scanner.nextInt();
-       do {
-          Menu.main();
-       }  // moet een while loop worden.
-         while  (retry == 1);
+        while (active){
 
-        do {
-            this.inschrijving();
+            System.out.println("Voor welk vak wilt u zich inschrijven? ");
+            String invoer = scanner.nextLine();
+            vakken.add(invoer);
+            System.out.println("Uw vak is toegevoegd, wilt u meer toevoegen?");
+            System.out.println("1) ja");
+            System.out.println("2) nee");
+            int retry = scanner.nextInt();
+            if (retry == 2) {
+               active = false;
+            } else {
+                System.out.println("Uw invoer wordt niet herkent.");
+                    }
         }
-         while (retry == 2);
-         {
-        do {
-            System.out.println("Uw invoer wordt niet herkent.");
-            Menu.main();
+
         }
-            while(retry !=2);
-             do {
-                 System.out.println("Uw invoer wordt niet herkent.");
-                 Menu.main();
-             }
-             while(retry !=1);
+
+
+
+        static private ArrayList<Student1> GeefStudentenTerug () {
+            return alleStudenten;
         }
+
+        public ArrayList<String> getVakken () {
+            return vakken;
+        }
+
+
     }
-
-
-    static private ArrayList<Student1> GeefStudentenTerug() {
-        return alleStudenten;
-    }
-
-    public ArrayList<String> getVakken() {
-        return vakken;
-    }
-
-
-}
