@@ -8,14 +8,21 @@ public class Question {
     private String vraag ;
     private ArrayList<String> answer;
     private String correct;
+    private Integer punten;
+    private Integer result;
+    private Integer Weight;
 
-    public Question() {
+    public Question(Integer Weight) {
 
         answer = new ArrayList<String>();
         setType();
-
+        this.Weight = Weight;
     }
 
+
+    public Integer getWeight() {
+        return Weight;
+    }
 
     public void setType() {
         System.out.println("kies uit de onderstaande vragen wat je wilt maken");
@@ -33,14 +40,15 @@ public class Question {
                 scanner.nextLine();
                 String meerkeuzevragen = scanner.nextLine();
                 System.out.println("Geef een getal tussen 3-4, voor het aantal mogelijkheden");
-
                 int aantal = scanner.nextInt();
-
+                System.out.println("geef ook punten ");
+                punten = scanner.nextInt();
                 if (aantal == 3) {
                     meerkeuze_antwoord();
                     System.out.println("De goede antwoord is:");
-                     correct_antwoord = scanner.nextLine();
+                    correct_antwoord = scanner.nextLine();
                      correct = correct_antwoord;
+
                 } else if (aantal == 4) {
                     meerkeuze_antwoord();
                     System.out.println("Antwoord D");
@@ -67,7 +75,6 @@ public class Question {
                 System.out.println("De goede antwoord is:");
                  correct_antwoord = scanner.nextLine();
                 correct = correct_antwoord;
-
                 setVraag(openvragen);
                 setAnswer(correct_antwoord);
 
@@ -84,6 +91,7 @@ public class Question {
                 correct = correct_antwoord;
                 setVraag(ja_nee_vraag);
                 setAnswer(correct_antwoord);
+
                 break;
 
             default:

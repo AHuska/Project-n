@@ -36,6 +36,7 @@ public class Student1 extends User {
             System.out.println("Uw invoer wordt niet herkent.");
             Menu.main();
         }
+
     }
 
 

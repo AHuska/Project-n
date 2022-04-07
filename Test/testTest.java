@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class testTest {
+class testTeacher {
 
     @Test
        void testGenerateStudentAndDelete(){
@@ -24,10 +24,23 @@ class testStudent{
     @Test
         void testStudentInschrijving(){
         Student1 inschrijf = new Student1("x" , 2121);
-        assertEquals("x" + 2121 ,inschrijf);
+        assertEquals("x" + 2121 ,inschrijf.inschrijving());
+
+
+    }
+}
+class testMenu{
+
+    @Test
+    void testMenu(){
+        Menu test = new Menu();
+        test.main();
+
+
 
 
 
     }
+
 }
 
