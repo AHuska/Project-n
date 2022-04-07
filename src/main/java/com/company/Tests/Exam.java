@@ -19,7 +19,7 @@ public class Exam {
     private String vak;
     private float cijferGehaald;
 
-    private Exam(String uniekeNaam, Teacher teacher, Student1 student, String vak) {
+    public Exam(String uniekeNaam, Teacher teacher, Student1 student, String vak) {
         this.uniekeNaam = uniekeNaam;
         this.teacher = teacher;
         this.student = student;
@@ -31,7 +31,7 @@ public class Exam {
     public void  cijferCounting() {
         int count = 0;
         for (int i= 0; i< vragen.size(); i++){
-            if (boolean == vragen.get(i)){
+            if (booleanquestion  == vragen.get(i)){
                 count ++;
 
             }
@@ -63,7 +63,7 @@ public class Exam {
 
     public String getUniekeNaam() {
         return uniekeNaam;
-    }
+   }
 }
 
 

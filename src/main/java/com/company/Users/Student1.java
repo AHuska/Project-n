@@ -11,7 +11,7 @@ public class Student1 extends User {
     private ArrayList<String> vakken;
     private ArrayList<Integer> cijferLijst;
 
-    Student1(String name, Integer identificatieCode) {
+    public Student1(String name, Integer identificatieCode) {
         this.name = name;
         this.identificatieCode = identificatieCode;
         alleStudenten.add(this);

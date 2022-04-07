@@ -66,7 +66,6 @@ public class Menu {
             case 1:
                 System.out.println("1) Lijst met examens");
                 ArrayList<Exam> exams = Exam.getAllExamens();
-                System.out.println("1) Lijst met examens");
                 for (Exam i : exams) {
                     System.out.println(i.getUniekeNaam());
                 }
@@ -115,4 +114,5 @@ public class Menu {
 
         }
     }
+
 }

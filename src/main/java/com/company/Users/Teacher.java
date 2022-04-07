@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Teacher extends User {
     static private ArrayList<Teacher> AlleTeachers;
 
-    Teacher(String name, Integer identificatieCode) {
+    public Teacher(String name, Integer identificatieCode) {
         this.name = name;
         this.identificatieCode = identificatieCode;
     }
@@ -27,6 +27,7 @@ public class Teacher extends User {
         if (input == 1) {
             System.out.println("Voer de naam van de student in:");
             String studentName = scanner.nextLine();
+
         } else if (input == 2) {
             System.out.println("Voer de identificatiecode van de student in:");
             Integer studentID = scanner.nextInt();
