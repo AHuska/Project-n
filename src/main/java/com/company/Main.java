@@ -80,12 +80,12 @@ public class Main {
 
             // convert lists to JSON files
             gson.toJson(studentList, student);
-          //  gson.toJson(docentenList, teacher);
+            //  gson.toJson(docentenList, teacher);
             gson.toJson(examList, exam);
 
             // close writer
             student.close();
-         //   teacher.close();
+            // teacher.close();
             exam.close();
 
         } catch (Exception ex) {
