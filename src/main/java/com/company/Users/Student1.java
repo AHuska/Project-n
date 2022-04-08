@@ -21,13 +21,8 @@ public class Student1 extends User {
     public void inschrijving() {
         boolean active = true;
         Scanner scanner = new Scanner(System.in);
-<<<<<<< HEAD
-        Boolean active = true;
         while (active) {
-=======
-        while (active){
 
->>>>>>> main
             System.out.println("Voor welk vak wilt u zich inschrijven? ");
             String invoer = scanner.nextLine();
             vakken.add(invoer);
@@ -36,20 +31,12 @@ public class Student1 extends User {
             System.out.println("2) nee");
             int retry = scanner.nextInt();
             if (retry == 2) {
-<<<<<<< HEAD
                 active = false;
             } else {
                 System.out.println("Uw invoer wordt niet herkent.");
             }
-=======
-               active = false;
-            } else {
-                System.out.println("Uw invoer wordt niet herkent.");
-                    }
->>>>>>> main
         }
-
-        }
+    }
 
     static public ArrayList<Student1> GeefStudentenTerug() {
         return alleStudenten;

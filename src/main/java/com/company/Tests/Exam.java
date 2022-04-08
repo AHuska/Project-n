@@ -10,8 +10,7 @@ import java.io.*;
 
 
 public class Exam {
-
-    static ArrayList<Exam> allExamens;
+    private static ArrayList<Exam> allExamens = new ArrayList<Exam>();
     private ArrayList<Question> vragen;
     private String uniekeNaam;
     private Student1 student;
@@ -24,28 +23,14 @@ public class Exam {
         this.teacher = teacher;
         this.student = student;
         this.vak = vak;
-
-
-    }
-
-    public void  cijferCounting() {
-        int count = 0;
-        for (int i= 0; i< vragen.size(); i++){
-            if (booleanquestion  == vragen.get(i)){
-                count ++;
-
-            }
-        }
-
     }
 
     public void save() {
         allExamens.add(this);
-
     }
 
     public static ArrayList<Exam> getAllExamens() {
-        return  allExamens;
+        return allExamens;
     }
 
     public void converterWeging() {
@@ -54,10 +39,10 @@ public class Exam {
         for ( Question i : vragen) {
             totaal += i.getWeight();
             if (i.getResult() == true){
-               behaaldePunten == i.getWeight();
+               behaaldePunten += i.getWeight();
 
             }
-            cijferGehaald = behaaldePunten/ totaal * 9 + 1;
+            cijferGehaald = behaaldePunten/totaal * 9 + 1;
         }
     }
 

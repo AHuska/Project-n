@@ -9,11 +9,10 @@ public class Question {
     private ArrayList<String> answer;
     private String correct;
     private Integer punten;
-    private Integer result;
+    private Boolean result;
     private Integer Weight;
 
     public Question(Integer Weight) {
-
         answer = new ArrayList<String>();
         setType();
         this.Weight = Weight;
@@ -123,7 +122,11 @@ public class Question {
             System.out.println("Antwoord C:");
             String C = scanner.nextLine();
         }
+
+    public Boolean getResult() {
+        return result;
     }
+}
 
 
 
