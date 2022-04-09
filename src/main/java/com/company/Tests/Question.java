@@ -6,14 +6,15 @@ import java.util.ArrayList;
 public class Question {
     private String type;
     private String vraag ;
-    private ArrayList<String> answer;
+    private ArrayList<String> options;
+    private String answer;
     private String correct;
     private Integer punten;
     private Boolean result;
     private Integer Weight;
 
     public Question(Integer Weight) {
-        answer = new ArrayList<String>();
+        options = new ArrayList<String>();
         setType();
         this.Weight = Weight;
     }
@@ -86,7 +87,7 @@ public class Question {
                 System.out.println("Schrijf hier jouw vraag:");
                 String ja_nee_vraag = scanner.nextLine();
                 System.out.println("De goede antwoord is:");
-                 correct_antwoord = scanner.nextLine();
+                correct_antwoord = scanner.nextLine();
                 correct = correct_antwoord;
                 setVraag(ja_nee_vraag);
                 setAnswer(correct_antwoord);
@@ -103,13 +104,11 @@ public class Question {
 
         public void setVraag(String question) {
             vraag = question;
-
-
-
         }
 
-        public void setAnswer(String antwoord ) {
-            ArrayList<String> answer = new ArrayList<String>();
+        public void setAnswer(String antwoord) {
+            this.answer = antwoord;
+            check();
         }
 
         public void meerkeuze_antwoord(){
@@ -126,6 +125,29 @@ public class Question {
     public Boolean getResult() {
         return result;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getVraag() {
+        return vraag;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
+
+    private void check() {
+        if (answer.equals(correct)) {
+            result = true;
+            System.out.println("je heb de vraag correct beantwoord");
+        } else {
+            result = false;
+            System.out.println("je hebt een fout andwoord gegeven");
+        }
+    }
+
 }
 
 
