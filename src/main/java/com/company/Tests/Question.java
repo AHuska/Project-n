@@ -99,13 +99,19 @@ public class Question {
                 break;
         }
     }
+        public String getVraag(){
+            return vraag;
 
+    }
+
+        public ArrayList<String> getAntwoord(){
+            return answer;
+
+    }
 
 
         public void setVraag(String question) {
             vraag = question;
-
-
 
         }
 
