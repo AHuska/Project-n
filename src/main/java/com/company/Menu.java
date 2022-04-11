@@ -48,7 +48,7 @@ public class Menu {
                     ArrayList<Student> studenten = Student.GeefStudentenTerug();
 
                     for (Student i : studenten) {
-                        System.out.println(i.getName());
+                        System.out.println(i.getName() + " (" + i.getIdentificatieCode() + ")");
                     }
                     Menu.main();
                     break;
@@ -87,9 +87,9 @@ public class Menu {
                 case 6:
                     System.out.println("6) Is student geslaagd voor test? \n---------------------------------");
                     break;
-
                 case 7:
                     System.out.println("7) Welke examens heeft student gehaald? \n---------------------------------------\n");
+
                     break;
 
                 case 8:
