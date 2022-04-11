@@ -12,7 +12,7 @@ import com.company.Users.Student1;
 import java.io.*;
 
 
-public class Exam {
+public class Exam implements Cloneable{
     private static ArrayList<Exam> allExamens = new ArrayList<Exam>();
     private ArrayList<Question> vragen;
     private String uniekeNaam;
@@ -26,6 +26,10 @@ public class Exam {
         this.teacher = teacher;
         //this.student = student;
         this.vak = vak;
+    }
+
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public void save() {
@@ -43,8 +47,8 @@ public class Exam {
             totaal += i.getWeight();
             if (i.getResult() == true) {
                 behaaldePunten += i.getWeight();
-
             }
+
             cijferGehaald = behaaldePunten / totaal * 9 + 1;
         }
     }
@@ -53,20 +57,29 @@ public class Exam {
         return uniekeNaam;
     }
 
-    public void makeExam(Exam exam) {
+    public void makeExam() {
         Scanner scanner = new Scanner(System.in);
-        Exam current = exam;
-        for (Question vraag : current.vragen) {
-            System.out.println("type: " + vraag.getType() + "\n" + vraag.getVraag());
-            if (vraag.getType().equals("Meerkeuzevragen")) {
-                for (String option : vraag.getOptions()) {
-                    System.out.println(option);
+        try {
+            Exam current = (Exam) this.clone();
+            for (Question vraag : current.vragen) {
+                System.out.println("type: " + vraag.getType() + "\n" + vraag.getVraag());
+                if (vraag.getType().equals("Meerkeuzevragen")) {
+                    for (String option : vraag.getOptions()) {
+                        System.out.println(option);
+                    }
                 }
+                String input = scanner.nextLine();
+                vraag.setAnswer(input);
             }
-            String input = scanner.nextLine();
-            vraag.setAnswer(input);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
         }
-        
+
+
+    }
+
+    public String getVak() {
+        return vak;
     }
 }
 

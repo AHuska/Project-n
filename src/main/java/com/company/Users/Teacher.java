@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Teacher extends User {
-    static private ArrayList<Teacher> AlleTeachers;
+    static private ArrayList<Teacher> alleTeachers;
 
     public Teacher(String name, Integer identificatieCode) {
         this.name = name;
         this.identificatieCode = identificatieCode;
     }
 
-    static private ArrayList<Teacher> GeefTeachersTerug() {
-        return AlleTeachers;
+    static public ArrayList<Teacher> geefTeachersTerug() {
+        return alleTeachers;
     }
 
     public static void deleteStudent() {
