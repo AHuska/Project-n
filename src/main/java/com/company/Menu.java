@@ -52,6 +52,7 @@ public class Menu {
                     }
                     Menu.main();
                     break;
+
                 case 4:
                     System.out.println("4) Nieuwe student inschrijven \n-----------------------------");
                     Teacher.generateStudent();
@@ -65,28 +66,35 @@ public class Menu {
                 case 1:
                     System.out.println("1) Examen afnemen \n-----------------");
                     Student1 student = (Student1) Session.getUser();
+                    Boolean show = true;
                     ArrayList<Exam> avalible = new ArrayList<>();
 
-                    int i = 1;
-                    for (Exam exam : Exam.getAllExamens()){
-                        if (student.getVakken().contains(exam.getVak())) {
-                            System.out.println(i + ") " + exam.getUniekeNaam());
-                            avalible.add(exam);
-                            i++;
+                    while (show) {
+                        int i = 1;
+                        for (Exam exam : Exam.getAllExamens()) {
+                            if (student.getVakken().contains(exam.getVak())) {
+                                System.out.println(i + ") " + exam.getUniekeNaam());
+                                avalible.add(exam);
+                                i++;
+                            }
                         }
-                    }
-                    System.out.println("0) exit");
-                    Integer choice = scanner.nextInt();
-                    if (choice == 0) {
-                        //
-                    } else if (choice > 0 && choice <= avalible.size()){
-                        avalible.get(i-1).makeExam();
+                        System.out.println("0) exit");
+                        Integer choice = scanner.nextInt();
+                        if (choice == 0) {
+                            show = false;
+                        } else if (choice > 0 && choice <= avalible.size()) {
+                            avalible.get(i - 1).makeExam();
+                            show = false;
+                        } else {
+                            System.out.println("input word niet herkend");
+                        }
                     }
                     break;
 
                 case 6:
                     System.out.println("6) Is student geslaagd voor test? \n---------------------------------");
                     break;
+
                 case 7:
                     System.out.println("7) Welke examens heeft student gehaald? \n---------------------------------------\n");
 
@@ -95,10 +103,12 @@ public class Menu {
                 case 8:
                     System.out.println("8) Welke student heeft de meeste examens gehaald? \n-------------------------------------------------");
                     break;
+
                 case 0:
                     System.out.println("0) Exit \n-------");
                     active = false;
                     break;
+
                 default:
                     System.out.println("Geen correcte invoer,probeer opnieuw.");
             }
