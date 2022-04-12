@@ -35,17 +35,19 @@ public class Main {
             // create Gson instance
             Gson gson = new Gson();
 
-            // create a reader
+            // create a readers
             Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/json/students.json"));
+            Reader reader2 = Files.newBufferedReader(Paths.get("src/main/resources/json/teacher.json"));
+            Reader reader3 = Files.newBufferedReader(Paths.get("src/main/resources/json/exam.json"));
 
             // convert JSON string to the correct object
             List<Student1> students = new Gson().fromJson(reader, new TypeToken<List<Student1>>() {}.getType());
-            List<Teacher> docenten = new Gson().fromJson(reader, new TypeToken<List<Teacher>>() {}.getType());
-            List<Exam> exams = new Gson().fromJson(reader, new TypeToken<List<Exam>>() {}.getType());
+            List<Teacher> docenten = new Gson().fromJson(reader2, new TypeToken<List<Teacher>>() {}.getType());
+            List<Exam> exams = new Gson().fromJson(reader3, new TypeToken<List<Exam>>() {}.getType());
 
             // save objects to their "all" arrays
             students.forEach((student) -> student.save());
-            //docenten.forEach((teacher) -> teacher.save());
+            docenten.forEach((teacher) -> teacher.save());
             exams.forEach((exam) -> exam.save());
 
             // close reader
