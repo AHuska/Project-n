@@ -1,7 +1,9 @@
 package com.company.Users;
 
 import com.company.Menu;
+import com.company.Tests.Exam;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -9,7 +11,7 @@ public class Student1 extends User {
     static private ArrayList<Student1> alleStudenten = new ArrayList<Student1>();
 
     private ArrayList<String> vakken;
-    private ArrayList<Integer> cijferLijst;
+    private HashMap<Exam, Float> cijferLijst = new HashMap<>();
 
     public Student1(String name, Integer identificatieCode) {
         this.name = name;
@@ -47,7 +49,15 @@ public class Student1 extends User {
     }
 
     public void save() {
-        alleStudenten.add(this);
+        if (alleStudenten.contains(this)) {
+
+        } else {
+            alleStudenten.add(this);
+        }
+    }
+
+    public void setCijferLijst(Exam exam) {
+        cijferLijst.put(exam, exam.getCijferGehaald());
     }
 }
 

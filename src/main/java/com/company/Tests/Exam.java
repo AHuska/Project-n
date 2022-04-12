@@ -1,6 +1,7 @@
 package com.company.Tests;
 
 
+import com.company.Session;
 import com.company.Users.*;
 
 import java.util.Scanner;
@@ -61,6 +62,7 @@ public class Exam implements Cloneable{
         Scanner scanner = new Scanner(System.in);
         try {
             Exam current = (Exam) this.clone();
+            current.setStudent((Student1) Session.getUser());
             for (Question vraag : current.vragen) {
                 System.out.println("type: " + vraag.getType() + "\n" + vraag.getVraag());
                 if (vraag.getType().equals("Meerkeuzevragen")) {
@@ -71,6 +73,8 @@ public class Exam implements Cloneable{
                 String input = scanner.nextLine();
                 vraag.setAnswer(input);
             }
+            current.converterWeging();
+            ((Student1) Session.getUser()).setCijferLijst(current);
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -80,6 +84,14 @@ public class Exam implements Cloneable{
 
     public String getVak() {
         return vak;
+    }
+
+    public float getCijferGehaald() {
+        return cijferGehaald;
+    }
+
+    public void setStudent(Student1 student) {
+        this.student = student;
     }
 }
 
