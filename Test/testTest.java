@@ -12,35 +12,17 @@ class testTeacher {
 
     @Test
        void testGenerateStudentAndDelete(){
-    Teacher generate = new Teacher("bas", 3);
-    assertEquals("bas" ,generate.getName());
-
-    }
-
-}
-
-class testStudent{
-
-    @Test
-        void testStudentInschrijving(){
-        Student1 inschrijf = new Student1("x" , 2121);
-        assertEquals("x" + 2121 ,inschrijf.inschrijving());
+    //Arrange
 
 
-    }
-}
-class testMenu{
-
-    @Test
-    void testMenu(){
-        Menu test = new Menu();
-        test.main();
+     // Act
 
 
-
+     // Assert
 
 
     }
 
 }
+
 

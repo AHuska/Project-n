@@ -4,17 +4,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Question {
+    public static String correct;
     private String type;
     private String vraag ;
-    private ArrayList<String> answer;
-    private String correct;
+    private String answer;
     private Integer punten;
     private Integer result;
     private Integer Weight;
 
-    public Question(Integer Weight) {
+    public Question(Integer Weight, String answer) {
 
-        answer = new ArrayList<String>();
+        answer = this.answer;
         setType();
         this.Weight = Weight;
     }
@@ -103,12 +103,21 @@ public class Question {
             return vraag;
 
     }
+        public Integer getPunten(){
+        return punten;
 
-        public ArrayList<String> getAntwoord(){
+
+
+        }
+        public String getAntwoord(){
             return answer;
 
-    }
 
+    }
+        public  String getCorrect(){
+        return  correct;
+
+        }
 
         public void setVraag(String question) {
             vraag = question;
@@ -116,7 +125,7 @@ public class Question {
         }
 
         public void setAnswer(String antwoord ) {
-            ArrayList<String> answer = new ArrayList<String>();
+             answer = this.answer;
         }
 
         public void meerkeuze_antwoord(){
