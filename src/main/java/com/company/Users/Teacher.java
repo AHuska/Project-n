@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Teacher extends User {
-    static private ArrayList<Teacher> alleTeachers;
+    static private ArrayList<Teacher> alleTeachers = new ArrayList<>();
 
     public Teacher(String name, Integer identificatieCode) {
         this.name = name;
@@ -67,6 +67,9 @@ public class Teacher extends User {
     }
 
 
+    public void save() {
+        alleTeachers.add(this);
+    }
 }
 
 //

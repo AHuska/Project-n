@@ -1,11 +1,12 @@
 package com.company;
 
 import com.company.Tests.Exam;
-import com.company.Users.Student;
 import com.company.Users.Student1;
 import com.company.Users.Teacher;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
@@ -28,7 +29,6 @@ public class Menu {
                 System.out.println("8) Welke student heeft de meeste examens gehaald?");
             }
 
-
             System.out.println("0) Exit");
             System.out.println("Uw keuze:");
 
@@ -45,12 +45,11 @@ public class Menu {
 
                 case 3:
                     System.out.println("3) Lijst met studenten \n----------------------");
-                    ArrayList<Student> studenten = Student.GeefStudentenTerug();
+                    ArrayList<Student1> studenten = Student1.GeefStudentenTerug();
 
-                    for (Student i : studenten) {
+                    for (Student1 i : studenten) {
                         System.out.println(i.getName() + " (" + i.getIdentificatieCode() + ")");
                     }
-                    Menu.main();
                     break;
 
                 case 4:
@@ -92,18 +91,69 @@ public class Menu {
                     break;
 
                 case 6:
-                    System.out.println("6) Is student geslaagd voor test? \n---------------------------------");
+                    System.out.println("6) Is deze student geslaagd voor deze test? \n---------------------------------");
+                    ArrayList<Student1> studentList = Student1.GeefStudentenTerug();
+                    ArrayList<Exam> examList = Exam.getAllExamens();
+                    Integer y = 0;
+
+                    for (Student1 i : studentList) {
+                        System.out.println(y + ") " + i.getName() + " (" + i.getIdentificatieCode() + ")");
+                    }
+                    Student1 person = studentList.get(scanner.nextInt());
+                    y = 0;
+                    for (Exam i : examList) {
+                        System.out.println(y + ") " + i.getUniekeNaam());
+                    }
+                    Exam test = examList.get(scanner.nextInt());
+                    if (!person.getCijferLijst().containsKey(test.getUniekeNaam())){
+                        System.out.println("de student heeft dit examen niet gemaakt");
+                    } else {
+                        System.out.println(person.getCijferLijst().get(test.getUniekeNaam()));
+                    }
                     break;
 
                 case 7:
                     System.out.println("7) Welke examens heeft student gehaald? \n---------------------------------------\n");
+                    ArrayList<Student1> studentList1 = Student1.GeefStudentenTerug();
+                    ArrayList<Exam> examList1 = Exam.getAllExamens();
+                    Integer x = 0;
 
+                    for (Student1 i : studentList1) {
+                        System.out.println(x + ") " + i.getName() + " (" + i.getIdentificatieCode() + ")");
+                    }
+                    Student1 person1 = studentList1.get(scanner.nextInt());
+                    for (Map.Entry<String, Float> entry : person1.getCijferLijst().entrySet()) {
+                        String key = entry.getKey();
+                        Float value = entry.getValue();
+                        if (value >= 5.5) {
+                            System.out.println(key + " (" + value + ")");
+                        }
+                    }
                     break;
 
                 case 8:
                     System.out.println("8) Welke student heeft de meeste examens gehaald? \n-------------------------------------------------");
-                    break;
+                    ArrayList<Student1> studentList2 = Student1.GeefStudentenTerug();
+                    String highScore = "nobody";
+                    Integer reccord = 0;
 
+                    for (Student1 i : studentList2) {
+                        Integer punten = 0;
+                        for (Map.Entry<String, Float> entry : i.getCijferLijst().entrySet()) {
+                            String key = entry.getKey();
+                            Float value = entry.getValue();
+                            if (value >= 5.5) {
+                                punten++;
+                            }
+                        }
+                        if (punten > reccord) {
+                            highScore = i.getName();
+                            reccord = punten;
+                        }
+                    }
+                    System.out.println(highScore + " (" + reccord + ")");
+                    
+                    break;
                 case 0:
                     System.out.println("0) Exit \n-------");
                     active = false;

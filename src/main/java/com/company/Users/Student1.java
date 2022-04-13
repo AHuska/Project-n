@@ -11,13 +11,12 @@ public class Student1 extends User {
     static private ArrayList<Student1> alleStudenten = new ArrayList<Student1>();
 
     private ArrayList<String> vakken;
-    private HashMap<Exam, Float> cijferLijst = new HashMap<>();
+    private HashMap<String, Float> cijferLijst = new HashMap<>();
 
     public Student1(String name, Integer identificatieCode) {
         this.name = name;
         this.identificatieCode = identificatieCode;
         alleStudenten.add(this);
-
     }
 
     public void inschrijving() {
@@ -57,7 +56,10 @@ public class Student1 extends User {
     }
 
     public void setCijferLijst(Exam exam) {
-        cijferLijst.put(exam, exam.getCijferGehaald());
+        cijferLijst.put(exam.getUniekeNaam(), exam.getCijferGehaald());
+    }
+    public HashMap<String, Float> getCijferLijst() {
+        return cijferLijst;
     }
 }
 
