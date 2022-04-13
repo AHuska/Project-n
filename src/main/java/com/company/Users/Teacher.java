@@ -70,6 +70,10 @@ public class Teacher extends User {
     public void save() {
         alleTeachers.add(this);
     }
+
+    public static void ontsla(Integer teacher) {
+        alleTeachers.remove(teacher);
+    }
 }
 
 //

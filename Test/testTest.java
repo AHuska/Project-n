@@ -6,17 +6,21 @@ import com.company.Users.Teacher;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class testTeacher {
 
     @Test
-    void testGenerateStudentAndDelete() {
+    void testGenerateStudent() {
         Teacher generate = new Teacher("bas", 3);
-        assertEquals("bas", generate.getName());
-
+        ArrayList<Teacher> all = Teacher.geefTeachersTerug();
+        assertEquals("bas", all.get(all.size() - 1).getName());
+        if (all.size() > 1) {
+            Teacher.ontsla(all.size() - 1);
+        }
     }
-
 }
 
 class testStudent {
