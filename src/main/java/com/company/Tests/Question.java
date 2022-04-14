@@ -7,14 +7,25 @@ public class Question {
     public static String correct;
     private String type;
     private String vraag ;
+<<<<<<< HEAD
     private String answer;
+=======
+    private ArrayList<String> options;
+    private String answer;
+    private String correct;
+>>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
     private Integer punten;
-    private Integer result;
+    private Boolean result;
     private Integer Weight;
 
+<<<<<<< HEAD
     public Question(Integer Weight, String answer) {
 
         answer = this.answer;
+=======
+    public Question(Integer Weight) {
+        options = new ArrayList<String>();
+>>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
         setType();
         this.Weight = Weight;
     }
@@ -87,7 +98,7 @@ public class Question {
                 System.out.println("Schrijf hier jouw vraag:");
                 String ja_nee_vraag = scanner.nextLine();
                 System.out.println("De goede antwoord is:");
-                 correct_antwoord = scanner.nextLine();
+                correct_antwoord = scanner.nextLine();
                 correct = correct_antwoord;
                 setVraag(ja_nee_vraag);
                 setAnswer(correct_antwoord);
@@ -107,6 +118,7 @@ public class Question {
         return punten;
 
 
+<<<<<<< HEAD
 
         }
         public String getAntwoord(){
@@ -126,6 +138,15 @@ public class Question {
 
         public void setAnswer(String antwoord ) {
              answer = this.answer;
+=======
+        public void setVraag(String question) {
+            vraag = question;
+        }
+
+        public void setAnswer(String antwoord) {
+            this.answer = antwoord;
+            check();
+>>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
         }
 
         public void meerkeuze_antwoord(){
@@ -138,7 +159,34 @@ public class Question {
             System.out.println("Antwoord C:");
             String C = scanner.nextLine();
         }
+
+    public Boolean getResult() {
+        return result;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getVraag() {
+        return vraag;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
+
+    private void check() {
+        if (answer.equals(correct)) {
+            result = true;
+            System.out.println("je heb de vraag correct beantwoord");
+        } else {
+            result = false;
+            System.out.println("je hebt een fout andwoord gegeven");
+        }
+    }
+
+}
 
 
 
