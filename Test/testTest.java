@@ -6,12 +6,17 @@ import com.company.Users.Teacher;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class testTeacher {
 
     @Test
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
        void testGenerateStudentAndDelete(){
     //Arrange
 
@@ -23,6 +28,7 @@ class testTeacher {
 
 
     }
+<<<<<<< HEAD
 
 =======
     void testGenerateStudentAndDelete() {
@@ -42,6 +48,8 @@ class testStudent {
 
     }
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+>>>>>>> main
 }
 
 

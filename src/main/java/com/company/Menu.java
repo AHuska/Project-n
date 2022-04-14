@@ -14,72 +14,6 @@ public class Menu {
     public static void main() {
         // write your code here
         Scanner scanner = new Scanner(System.in);
-<<<<<<< HEAD
-
-        System.out.println("Menu");
-        System.out.println("1) Lijst met examens");
-        System.out.println("2) Lijst met studenten");
-        System.out.println("3) Nieuwe student inschrijven");
-        System.out.println("4) Student verwijderen");
-        System.out.println("5) Examen afnemen");
-        System.out.println("6) Hoeveel studenten zijn geslagen voor een examen?");
-        System.out.println("7) Welke examens heeft student gehaald?");
-        System.out.println("8) Welke student heeft de meeste examens gehaald?");
-        System.out.println("0) Exit");
-        System.out.println("Uw keuze:");
-
-        int input = scanner.nextInt();
-
-        switch (input) {
-            case 1:
-                System.out.println("1) Lijst met examens");
-                ArrayList<Exam> exams = Exam.getAllExamens();
-                for (Exam i : exams) {
-                    System.out.println(i.getUniekeNaam());
-                }
-                Menu.main();
-                break;
-
-            case 2:
-                System.out.println("2) Lijst met studenten \n----------------------");
-                ArrayList<Student> studenten = Student.GeefStudentenTerug();
-
-                for (Student i : studenten) {
-                    System.out.println(i.getName());
-                }
-                Menu.main();
-                break;
-            case 3:
-                System.out.println("3) Nieuwe student inschrijven \n-----------------------------");
-                Teacher.generateStudent();
-                break;
-
-            case 4:
-                System.out.println("4) Student verwijderen \n----------------------");
-                Teacher.deleteStudent();
-                break;
-
-            case 5:
-                System.out.println("5) Examen afnemen \n-----------------");
-                break;
-
-            case 6:
-                System.out.println("6) Hoeveel studenten zijn geslagen voor een examen? \n---------------------------------");
-                break;
-
-            case 7:
-                System.out.println("7) Welke examens heeft student gehaald? \n---------------------------------------\n");
-                break;
-
-            case 8:
-                System.out.println("8) Welke student heeft de meeste examens gehaald? \n-------------------------------------------------");
-                break;
-            case 0:
-                System.out.println("0) Exit \n-------");
-                return;
-            default:
-                System.out.println("Geen correcte invoer,probeer opnieuw.");
-
 =======
         Boolean active = true;
 
@@ -229,7 +163,10 @@ public class Menu {
                 default:
                     System.out.println("Geen correcte invoer,probeer opnieuw.");
             }
+<<<<<<< HEAD
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+>>>>>>> main
         }
     }
 }

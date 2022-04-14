@@ -13,10 +13,13 @@ import com.company.Users.Student1;
 import java.io.*;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 public class Exam {
 =======
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+>>>>>>> main
 
 public class Exam implements Cloneable{
     private static ArrayList<Exam> allExamens = new ArrayList<Exam>();
@@ -34,6 +37,7 @@ public class Exam implements Cloneable{
         this.vak = vak;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public void cijferCounting() {
         int count = 0;
@@ -65,6 +69,8 @@ public class Exam implements Cloneable{
                 cijferGehaald = behaaldePunten / totaal * 9 + 1;
             }
 =======
+=======
+>>>>>>> main
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
@@ -87,6 +93,7 @@ public class Exam implements Cloneable{
             }
 
             cijferGehaald = behaaldePunten / totaal * 9 + 1;
+<<<<<<< HEAD
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
         }
 
@@ -95,6 +102,10 @@ public class Exam implements Cloneable{
             return uniekeNaam;
         }
 =======
+=======
+        }
+
+>>>>>>> main
     public String getUniekeNaam() {
         return uniekeNaam;
     }
@@ -135,7 +146,10 @@ public class Exam implements Cloneable{
         this.student = student;
     }
 }
+<<<<<<< HEAD
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+>>>>>>> main
 
 }
 

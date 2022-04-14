@@ -8,16 +8,23 @@ public class Question {
     private String type;
     private String vraag ;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private String answer;
 =======
     private ArrayList<String> options;
     private String answer;
     private String correct;
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+    private ArrayList<String> options;
+    private String answer;
+    private String correct;
+>>>>>>> main
     private Integer punten;
     private Boolean result;
     private Integer Weight;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public Question(Integer Weight, String answer) {
 
@@ -26,6 +33,10 @@ public class Question {
     public Question(Integer Weight) {
         options = new ArrayList<String>();
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+    public Question(Integer Weight) {
+        options = new ArrayList<String>();
+>>>>>>> main
         setType();
         this.Weight = Weight;
     }
@@ -119,6 +130,7 @@ public class Question {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         }
         public String getAntwoord(){
@@ -139,6 +151,8 @@ public class Question {
         public void setAnswer(String antwoord ) {
              answer = this.answer;
 =======
+=======
+>>>>>>> main
         public void setVraag(String question) {
             vraag = question;
         }
@@ -146,7 +160,10 @@ public class Question {
         public void setAnswer(String antwoord) {
             this.answer = antwoord;
             check();
+<<<<<<< HEAD
 >>>>>>> 6b629032776a452cad3fbf3d81adc528d3ecebc8
+=======
+>>>>>>> main
         }
 
         public void meerkeuze_antwoord(){
