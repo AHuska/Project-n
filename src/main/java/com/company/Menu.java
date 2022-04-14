@@ -19,15 +19,13 @@ public class Menu {
         while (active) {
             System.out.println("Menu");
             System.out.println("1) Examen afnemen");
-            //if (Session.getUser().getClass().getSimpleName().equals("Teacher")) {
-                System.out.println("2) Lijst met examens");
-                System.out.println("3) Lijst met studenten");
-                System.out.println("4) Nieuwe student inschrijven");
-                System.out.println("5) Student verwijderen");
-                System.out.println("6) Is student geslaagd voor test?");
-                System.out.println("7) Welke examens heeft student gehaald?");
-                System.out.println("8) Welke student heeft de meeste examens gehaald?");
-            //}
+            System.out.println("2) Lijst met examens");
+            System.out.println("3) Lijst met studenten");
+            System.out.println("4) Nieuwe student inschrijven");
+            System.out.println("5) Student verwijderen");
+            System.out.println("6) Is student geslaagd voor test?");
+            System.out.println("7) Welke examens heeft student gehaald?");
+            System.out.println("8) Welke student heeft de meeste examens gehaald?");
 
             System.out.println("0) Exit");
             System.out.println("Uw keuze:");
@@ -52,8 +50,8 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("4) Nieuwe student inschrijven \n-----------------------------");
-                    Teacher.generateStudent();
+                    System.out.println("4) student inschrijven \n-----------------------------");
+
                     break;
 
                 case 5:
@@ -63,29 +61,33 @@ public class Menu {
 
                 case 1:
                     System.out.println("1) Examen afnemen \n-----------------");
+                    try {
                     Student1 student = (Student1) Session.getUser();
                     Boolean show = true;
                     ArrayList<Exam> avalible = new ArrayList<>();
 
                     while (show) {
                         int i = 1;
-                        for (Exam exam : Exam.getAllExamens()) {
-                            if (student.getVakken().contains(exam.getVak())) {
-                                System.out.println(i + ") " + exam.getUniekeNaam());
-                                avalible.add(exam);
-                                i++;
+                            for (Exam exam : Exam.getAllExamens()) {
+                                if (student.getVakken().contains(exam.getVak())) {
+                                    System.out.println(i + ") " + exam.getUniekeNaam());
+                                    avalible.add(exam);
+                                    i++;
+                                }
+                            }
+                            System.out.println("0) exit");
+                            Integer choice = scanner.nextInt();
+                            if (choice == 0) {
+                                show = false;
+                            } else if (choice > 0 && choice <= avalible.size()) {
+                                avalible.get(i - 1).makeExam();
+                                show = false;
+                            } else {
+                                System.out.println("input word niet herkend");
                             }
                         }
-                        System.out.println("0) exit");
-                        Integer choice = scanner.nextInt();
-                        if (choice == 0) {
-                            show = false;
-                        } else if (choice > 0 && choice <= avalible.size()) {
-                            avalible.get(i - 1).makeExam();
-                            show = false;
-                        } else {
-                            System.out.println("input word niet herkend");
-                        }
+                    }catch (Exception ex) {
+                        System.out.println("je heb geen examens voor de vakken die je heb");
                     }
                     break;
 

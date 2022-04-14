@@ -21,7 +21,7 @@ public class Main {
         Main.init();
 
         //basic login function to see which student/teacher does what
-        //Session.login();
+        Session.login();
 
         //redirects to the menu loop
         Menu.main();
