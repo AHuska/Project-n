@@ -15,16 +15,14 @@ import java.io.*;
 
 public class Exam implements Cloneable{
     private static ArrayList<Exam> allExamens = new ArrayList<Exam>();
-    private ArrayList<Question> vragen;
+    private ArrayList<Question> vragen = new ArrayList<>();
     private String uniekeNaam;
     private Student1 student;
-    private Teacher teacher;
     private String vak;
     private float cijferGehaald;
 
-    public Exam(String uniekeNaam, Teacher teacher, String vak) {
+    public Exam(String uniekeNaam, String vak) {
         this.uniekeNaam = uniekeNaam;
-        this.teacher = teacher;
         //this.student = student;
         this.vak = vak;
     }
@@ -92,6 +90,10 @@ public class Exam implements Cloneable{
 
     public void setStudent(Student1 student) {
         this.student = student;
+    }
+    public void addQuestion() {
+        Question a = new Question();
+        vragen.add(a);
     }
 }
 
