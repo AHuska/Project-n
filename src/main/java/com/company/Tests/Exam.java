@@ -93,6 +93,7 @@ public class Exam implements Cloneable{
     }
     public void addQuestion() {
         Question a = new Question();
+        a.setType();
         vragen.add(a);
     }
 }
