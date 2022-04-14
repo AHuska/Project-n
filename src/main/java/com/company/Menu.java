@@ -19,15 +19,13 @@ public class Menu {
         while (active) {
             System.out.println("Menu");
             System.out.println("1) Examen afnemen");
-            if (Session.getUser().getClass().getSimpleName().equals("Teacher")) {
-                System.out.println("2) Lijst met examens");
-                System.out.println("3) Lijst met studenten");
-                System.out.println("4) Nieuwe student inschrijven");
-                System.out.println("5) Student verwijderen");
-                System.out.println("6) Is student geslaagd voor test?");
-                System.out.println("7) Welke examens heeft student gehaald?");
-                System.out.println("8) Welke student heeft de meeste examens gehaald?");
-            }
+            System.out.println("2) Lijst met examens");
+            System.out.println("3) Lijst met studenten");
+            System.out.println("4) Nieuwe student inschrijven");
+            System.out.println("5) Student verwijderen");
+            System.out.println("6) Is student geslaagd voor test?");
+            System.out.println("7) Welke examens heeft student gehaald?");
+            System.out.println("8) Welke student heeft de meeste examens gehaald?");
 
             System.out.println("0) Exit");
             System.out.println("Uw keuze:");
@@ -40,7 +38,6 @@ public class Menu {
                     for (Exam i : exams) {
                         System.out.println(i.getUniekeNaam());
                     }
-                    Menu.main();
                     break;
 
                 case 3:
@@ -53,8 +50,8 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("4) Nieuwe student inschrijven \n-----------------------------");
-                    Teacher.generateStudent();
+                    System.out.println("4) student inschrijven \n-----------------------------");
+                    Session.getUser().setVakken();
                     break;
 
                 case 5:
@@ -64,29 +61,34 @@ public class Menu {
 
                 case 1:
                     System.out.println("1) Examen afnemen \n-----------------");
-                    Student1 student = (Student1) Session.getUser();
-                    Boolean show = true;
-                    ArrayList<Exam> avalible = new ArrayList<>();
+                    try {
+                        Student1 student = (Student1) Session.getUser();
+                        Boolean show = true;
+                        ArrayList<Exam> avalible = new ArrayList<>();
 
-                    while (show) {
-                        int i = 1;
-                        for (Exam exam : Exam.getAllExamens()) {
-                            if (student.getVakken().contains(exam.getVak())) {
-                                System.out.println(i + ") " + exam.getUniekeNaam());
-                                avalible.add(exam);
-                                i++;
+                        while (show) {
+                            int i = 1;
+                            for (Exam exam : Exam.getAllExamens()) {
+                                if (student.getVakken().contains(exam.getVak())) {
+                                    System.out.println(i + ") " + exam.getUniekeNaam());
+                                    avalible.add(exam);
+                                    i++;
+                                }
+                            }
+                            System.out.println("0) exit");
+                            Integer choice = scanner.nextInt();
+                            if (choice == 0) {
+                                show = false;
+                            } else if (choice > 0 && choice <= avalible.size()) {
+                                avalible.get(choice - 1).makeExam();
+                                show = false;
+                            } else {
+                                System.out.println("input word niet herkend");
                             }
                         }
-                        System.out.println("0) exit");
-                        Integer choice = scanner.nextInt();
-                        if (choice == 0) {
-                            show = false;
-                        } else if (choice > 0 && choice <= avalible.size()) {
-                            avalible.get(i - 1).makeExam();
-                            show = false;
-                        } else {
-                            System.out.println("input word niet herkend");
-                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                        System.out.println("je heb geen examens voor de vakken die je heb");
                     }
                     break;
 
@@ -105,7 +107,7 @@ public class Menu {
                         System.out.println(y + ") " + i.getUniekeNaam());
                     }
                     Exam test = examList.get(scanner.nextInt());
-                    if (!person.getCijferLijst().containsKey(test.getUniekeNaam())){
+                    if (!person.getCijferLijst().containsKey(test.getUniekeNaam())) {
                         System.out.println("de student heeft dit examen niet gemaakt");
                     } else {
                         System.out.println(person.getCijferLijst().get(test.getUniekeNaam()));
@@ -152,8 +154,23 @@ public class Menu {
                         }
                     }
                     System.out.println(highScore + " (" + reccord + ")");
-                    
+
                     break;
+                case 9:
+                    System.out.println("naam van examen");
+                    String filler = scanner.nextLine();
+                    String bla = scanner.nextLine();
+                    System.out.println("vak");
+                    String bla2 = scanner.nextLine();
+                    Exam a = new Exam(bla, bla2);
+
+                    a.addQuestion();
+                    a.addQuestion();
+                    a.addQuestion();
+
+                    a.save();
+                    break;
+
                 case 0:
                     System.out.println("0) Exit \n-------");
                     active = false;

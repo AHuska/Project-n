@@ -55,11 +55,9 @@ public class Teacher extends User {
                 System.out.println("Nieuwe student geaccepteerd.");
                 Student1 student = new Student1(studentName, studentID);
                 student.save();
-                return;
-            } else if (input == 2) {
-                generateStudent();
+                active = false;
             } else if (input == 0) {
-                return;
+                active = false;
             } else {
                 System.out.println("Unexpected error. Please check www.hhs.nl for more info.");
             }

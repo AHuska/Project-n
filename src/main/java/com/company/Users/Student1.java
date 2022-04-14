@@ -11,7 +11,7 @@ public class Student1 extends User {
     static private ArrayList<Student1> alleStudenten = new ArrayList<Student1>();
 
     private ArrayList<String> vakken;
-    private HashMap<String, Float> cijferLijst = new HashMap<>();
+    private HashMap<String, Float> cijferLijst;
 
     public Student1(String name, Integer identificatieCode) {
         this.name = name;
@@ -39,6 +39,25 @@ public class Student1 extends User {
         }
     }
 
+    public void setVakken() {
+        Scanner scanner = new Scanner(System.in);
+        Boolean active = true;
+
+        while (active) {
+            System.out.println("voor welk vak wilt u zich inschrijven");
+            String input = scanner.nextLine();
+            if (vakken == null) {
+                vakken = new ArrayList<>();
+            }
+            vakken.add(input);
+            System.out.println("wilt u meer vakken toevoegen");
+            Integer choice = scanner.nextInt();
+            if (choice == 2) {
+                active = false;
+            }
+        }
+    }
+
     static public ArrayList<Student1> GeefStudentenTerug() {
         return alleStudenten;
     }
@@ -56,8 +75,14 @@ public class Student1 extends User {
     }
 
     public void setCijferLijst(Exam exam) {
-        cijferLijst.put(exam.getUniekeNaam(), exam.getCijferGehaald());
+        String examName =exam.getUniekeNaam();
+        Float grade = exam.getCijferGehaald();
+        if (cijferLijst==null) {
+            cijferLijst = new HashMap<String, Float>();;
+        }
+        this.cijferLijst.put(examName, grade);
     }
+
     public HashMap<String, Float> getCijferLijst() {
         return cijferLijst;
     }

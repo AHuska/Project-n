@@ -12,17 +12,14 @@ public class Question {
     private String correct;
     private Integer punten;
     private Boolean result;
-    private Integer Weight;
+    private Integer weight;
 
-    public Question(Integer Weight) {
+    public Question() {
         options = new ArrayList<String>();
-        setType();
-        this.Weight = Weight;
     }
 
-
     public Integer getWeight() {
-        return Weight;
+        return weight;
     }
 
     public void setType() {
@@ -32,6 +29,7 @@ public class Question {
         System.out.println("3.Ja of nee vragen");
         Scanner scanner = new Scanner(System.in);
         int invoer = scanner.nextInt();
+        scanner.nextLine();
         String correct_antwoord = "Null";
         switch (invoer) {
             case 1:
@@ -44,11 +42,13 @@ public class Question {
                 int aantal = scanner.nextInt();
                 System.out.println("geef ook punten ");
                 punten = scanner.nextInt();
+                scanner.nextLine();
                 if (aantal == 3) {
                     meerkeuze_antwoord();
                     System.out.println("De goede antwoord is:");
+                    scanner.nextLine();
                     correct_antwoord = scanner.nextLine();
-                     correct = correct_antwoord;
+                    correct = correct_antwoord;
 
                 } else if (aantal == 4) {
                     meerkeuze_antwoord();
@@ -74,7 +74,7 @@ public class Question {
                 scanner.nextLine();
                 String openvragen = scanner.nextLine();
                 System.out.println("De goede antwoord is:");
-                 correct_antwoord = scanner.nextLine();
+                correct_antwoord = scanner.nextLine();
                 correct = correct_antwoord;
                 setVraag(openvragen);
                 setAnswer(correct_antwoord);
@@ -99,6 +99,9 @@ public class Question {
                 System.out.println("Geen correct invoer, probeer opnieuw");
                 break;
         }
+
+        System.out.println("de vraag weegt hoeveel punten");
+        this.weight = scanner.nextInt();
     }
         public String getVraag(){
             return vraag;

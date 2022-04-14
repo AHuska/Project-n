@@ -1,1 +1,1 @@
-null
+[{"vragen":[{"type":"Ja of nee vragen","vraag":"een auto is een voertuig","options":[],"answer":"ja","correct":"ja","result":true,"weight":1},{"type":"Meerkeuzevragen","vraag":"","options":["deuren", "wielen", "vleugels"],"answer":"vleugels","correct":"vleugels","punten":1,"result":true,"weight":1},{"type":"Ja of nee vragen","vraag":"was dit makkelijk","options":[],"answer":"nee","correct":"nee","result":true,"weight":3}],"uniekeNaam":"rij examen 1","vak":"Rijles","cijferGehaald":0.0}]
