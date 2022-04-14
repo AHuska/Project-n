@@ -4,6 +4,7 @@ package com.company.Tests;
 import com.company.Session;
 import com.company.Users.*;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -40,16 +41,16 @@ public class Exam implements Cloneable{
     }
 
     public void converterWeging() {
-        int totaal = 0;
-        int behaaldePunten = 0;
+        Integer totaal = 0;
+        Integer behaaldePunten = 0;
         for (Question i : vragen) {
             totaal += i.getWeight();
             if (i.getResult() == true) {
                 behaaldePunten += i.getWeight();
             }
-
-            cijferGehaald = behaaldePunten / totaal * 9 + 1;
         }
+
+        cijferGehaald = behaaldePunten / totaal * 9 + 1;
     }
 
     public String getUniekeNaam() {
@@ -72,7 +73,8 @@ public class Exam implements Cloneable{
                 vraag.setAnswer(input);
             }
             current.converterWeging();
-            ((Student1) Session.getUser()).setCijferLijst(current);
+            Session.getUser().setCijferLijst(current);
+            System.out.println("gefeliciteerd je heb een " + current.getCijferGehaald() + " behaald");
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }

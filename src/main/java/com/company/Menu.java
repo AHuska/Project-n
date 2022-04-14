@@ -51,7 +51,7 @@ public class Menu {
 
                 case 4:
                     System.out.println("4) student inschrijven \n-----------------------------");
-
+                    Session.getUser().setVakken();
                     break;
 
                 case 5:
@@ -62,12 +62,12 @@ public class Menu {
                 case 1:
                     System.out.println("1) Examen afnemen \n-----------------");
                     try {
-                    Student1 student = (Student1) Session.getUser();
-                    Boolean show = true;
-                    ArrayList<Exam> avalible = new ArrayList<>();
+                        Student1 student = (Student1) Session.getUser();
+                        Boolean show = true;
+                        ArrayList<Exam> avalible = new ArrayList<>();
 
-                    while (show) {
-                        int i = 1;
+                        while (show) {
+                            int i = 1;
                             for (Exam exam : Exam.getAllExamens()) {
                                 if (student.getVakken().contains(exam.getVak())) {
                                     System.out.println(i + ") " + exam.getUniekeNaam());
@@ -80,13 +80,14 @@ public class Menu {
                             if (choice == 0) {
                                 show = false;
                             } else if (choice > 0 && choice <= avalible.size()) {
-                                avalible.get(i - 1).makeExam();
+                                avalible.get(choice - 1).makeExam();
                                 show = false;
                             } else {
                                 System.out.println("input word niet herkend");
                             }
                         }
-                    }catch (Exception ex) {
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                         System.out.println("je heb geen examens voor de vakken die je heb");
                     }
                     break;
@@ -106,7 +107,7 @@ public class Menu {
                         System.out.println(y + ") " + i.getUniekeNaam());
                     }
                     Exam test = examList.get(scanner.nextInt());
-                    if (!person.getCijferLijst().containsKey(test.getUniekeNaam())){
+                    if (!person.getCijferLijst().containsKey(test.getUniekeNaam())) {
                         System.out.println("de student heeft dit examen niet gemaakt");
                     } else {
                         System.out.println(person.getCijferLijst().get(test.getUniekeNaam()));
@@ -153,7 +154,7 @@ public class Menu {
                         }
                     }
                     System.out.println(highScore + " (" + reccord + ")");
-                    
+
                     break;
                 case 9:
                     System.out.println("naam van examen");

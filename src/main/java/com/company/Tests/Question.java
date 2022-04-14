@@ -28,6 +28,7 @@ public class Question {
         System.out.println("3.Ja of nee vragen");
         Scanner scanner = new Scanner(System.in);
         int invoer = scanner.nextInt();
+        scanner.nextLine();
         String correct_antwoord = "Null";
         switch (invoer) {
             case 1:
@@ -40,11 +41,13 @@ public class Question {
                 int aantal = scanner.nextInt();
                 System.out.println("geef ook punten ");
                 punten = scanner.nextInt();
+                scanner.nextLine();
                 if (aantal == 3) {
                     meerkeuze_antwoord();
                     System.out.println("De goede antwoord is:");
+                    scanner.nextLine();
                     correct_antwoord = scanner.nextLine();
-                     correct = correct_antwoord;
+                    correct = correct_antwoord;
 
                 } else if (aantal == 4) {
                     meerkeuze_antwoord();
@@ -70,7 +73,7 @@ public class Question {
                 scanner.nextLine();
                 String openvragen = scanner.nextLine();
                 System.out.println("De goede antwoord is:");
-                 correct_antwoord = scanner.nextLine();
+                correct_antwoord = scanner.nextLine();
                 correct = correct_antwoord;
                 setVraag(openvragen);
                 setAnswer(correct_antwoord);

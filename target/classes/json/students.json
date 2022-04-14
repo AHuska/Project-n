@@ -1,1 +1,1 @@
-[{"name":"floor","identificatieCode":1},{"name":"alexander","identificatieCode":2},{"name":"shuang","identificatieCode":3},{"name":"waihong","identificatieCode":4},{"name":"tommy","identificatieCode":5}]
+[{"name":"floor","identificatieCode":1},{"name":"alexander","identificatieCode":2},{"name":"shuang","identificatieCode":3},{"name":"waihong","identificatieCode":4},{"vakken":["Rijles"],"name":"tommy","identificatieCode":5}]
