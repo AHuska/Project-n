@@ -21,7 +21,7 @@ public class Main {
         Main.init();
 
         //basic login function to see which student/teacher does what
-        Session.login();
+        //Session.login();
 
         //redirects to the menu loop
         Menu.main();
@@ -47,7 +47,7 @@ public class Main {
 
             // save objects to their "all" arrays
             students.forEach((student) -> student.save());
-            docenten.forEach((teacher) -> teacher.save());
+            //docenten.forEach((teacher) -> teacher.save());
             exams.forEach((exam) -> exam.save());
 
             // close reader

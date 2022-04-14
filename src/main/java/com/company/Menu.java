@@ -19,7 +19,7 @@ public class Menu {
         while (active) {
             System.out.println("Menu");
             System.out.println("1) Examen afnemen");
-            if (Session.getUser().getClass().getSimpleName().equals("Teacher")) {
+            //if (Session.getUser().getClass().getSimpleName().equals("Teacher")) {
                 System.out.println("2) Lijst met examens");
                 System.out.println("3) Lijst met studenten");
                 System.out.println("4) Nieuwe student inschrijven");
@@ -27,7 +27,7 @@ public class Menu {
                 System.out.println("6) Is student geslaagd voor test?");
                 System.out.println("7) Welke examens heeft student gehaald?");
                 System.out.println("8) Welke student heeft de meeste examens gehaald?");
-            }
+            //}
 
             System.out.println("0) Exit");
             System.out.println("Uw keuze:");
@@ -40,7 +40,6 @@ public class Menu {
                     for (Exam i : exams) {
                         System.out.println(i.getUniekeNaam());
                     }
-                    Menu.main();
                     break;
 
                 case 3:
@@ -154,6 +153,21 @@ public class Menu {
                     System.out.println(highScore + " (" + reccord + ")");
                     
                     break;
+                case 9:
+                    System.out.println("naam van examen");
+                    String filler = scanner.nextLine();
+                    String bla = scanner.nextLine();
+                    System.out.println("vak");
+                    String bla2 = scanner.nextLine();
+                    Exam a = new Exam(bla, bla2);
+
+                    a.addQuestion();
+                    a.addQuestion();
+                    a.addQuestion();
+
+                    a.save();
+                    break;
+
                 case 0:
                     System.out.println("0) Exit \n-------");
                     active = false;

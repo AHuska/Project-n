@@ -13,10 +13,10 @@ public class Question {
     private Boolean result;
     private Integer Weight;
 
-    public Question(Integer Weight) {
+    public Question() {
         options = new ArrayList<String>();
         setType();
-        this.Weight = Weight;
+        //this.Weight = Weight;
     }
 
 
@@ -98,6 +98,9 @@ public class Question {
                 System.out.println("Geen correct invoer, probeer opnieuw");
                 break;
         }
+
+        System.out.println("de vraag weegt hoeveel punten");
+        this.Weight = scanner.nextInt();
     }
 
 
