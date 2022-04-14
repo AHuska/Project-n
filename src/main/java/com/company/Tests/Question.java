@@ -7,14 +7,15 @@ public class Question {
     public static String correct;
     private String type;
     private String vraag ;
+    private ArrayList<String> options;
     private String answer;
+    private String correct;
     private Integer punten;
-    private Integer result;
+    private Boolean result;
     private Integer Weight;
 
-    public Question(Integer Weight, String answer) {
-
-        answer = this.answer;
+    public Question(Integer Weight) {
+        options = new ArrayList<String>();
         setType();
         this.Weight = Weight;
     }
@@ -87,7 +88,7 @@ public class Question {
                 System.out.println("Schrijf hier jouw vraag:");
                 String ja_nee_vraag = scanner.nextLine();
                 System.out.println("De goede antwoord is:");
-                 correct_antwoord = scanner.nextLine();
+                correct_antwoord = scanner.nextLine();
                 correct = correct_antwoord;
                 setVraag(ja_nee_vraag);
                 setAnswer(correct_antwoord);
@@ -107,25 +108,13 @@ public class Question {
         return punten;
 
 
-
-        }
-        public String getAntwoord(){
-            return answer;
-
-
-    }
-        public  String getCorrect(){
-        return  correct;
-
-        }
-
         public void setVraag(String question) {
             vraag = question;
-
         }
 
-        public void setAnswer(String antwoord ) {
-             answer = this.answer;
+        public void setAnswer(String antwoord) {
+            this.answer = antwoord;
+            check();
         }
 
         public void meerkeuze_antwoord(){
@@ -138,7 +127,34 @@ public class Question {
             System.out.println("Antwoord C:");
             String C = scanner.nextLine();
         }
+
+    public Boolean getResult() {
+        return result;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getVraag() {
+        return vraag;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
+
+    private void check() {
+        if (answer.equals(correct)) {
+            result = true;
+            System.out.println("je heb de vraag correct beantwoord");
+        } else {
+            result = false;
+            System.out.println("je hebt een fout andwoord gegeven");
+        }
+    }
+
+}
 
 
 
