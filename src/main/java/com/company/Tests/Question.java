@@ -4,9 +4,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Question {
-    public static String correct;
     private String type;
-    private String vraag ;
+    private String vraag;
     private ArrayList<String> options;
     private String answer;
     private String correct;
@@ -55,7 +54,7 @@ public class Question {
                     System.out.println("Antwoord D");
                     String D = scanner.nextLine();
                     System.out.println("De goede antwoord is:");
-                     correct_antwoord = scanner.nextLine();
+                    correct_antwoord = scanner.nextLine();
                     correct = correct_antwoord;
 
                 } else {
@@ -103,33 +102,28 @@ public class Question {
         System.out.println("de vraag weegt hoeveel punten");
         this.weight = scanner.nextInt();
     }
-        public String getVraag(){
-            return vraag;
 
+
+
+    public void setVraag(String question) {
+        vraag = question;
     }
-        public Integer getPunten(){
-        return punten;
 
+    public void setAnswer(String antwoord) {
+        this.answer = antwoord;
+        check();
+    }
 
-        public void setVraag(String question) {
-            vraag = question;
-        }
-
-        public void setAnswer(String antwoord) {
-            this.answer = antwoord;
-            check();
-        }
-
-        public void meerkeuze_antwoord(){
+    public void meerkeuze_antwoord() {
         Scanner scanner = new Scanner(System.in);
-            System.out.println("Antwoord A:");
-            scanner.nextLine();
-            String A = scanner.nextLine();
-            System.out.println("Antwoord B:");
-            String B = scanner.nextLine();
-            System.out.println("Antwoord C:");
-            String C = scanner.nextLine();
-        }
+        System.out.println("Antwoord A:");
+        scanner.nextLine();
+        String A = scanner.nextLine();
+        System.out.println("Antwoord B:");
+        String B = scanner.nextLine();
+        System.out.println("Antwoord C:");
+        String C = scanner.nextLine();
+    }
 
     public Boolean getResult() {
         return result;
