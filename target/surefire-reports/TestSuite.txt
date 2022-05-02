@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.296 s <<< FAILURE! - in TestSuite
+testInschrijving(StudentTest)  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <rekenen8> but was: <rekenen>
+	at StudentTest.testInschrijving(StudentTest.java:30)
+

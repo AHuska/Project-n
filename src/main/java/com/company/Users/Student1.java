@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Student1 extends User {
     static private ArrayList<Student1> alleStudenten = new ArrayList<Student1>();
 
-    private ArrayList<String> vakken;
+    private ArrayList<String> vakken = new ArrayList<>();
     private HashMap<String, Float> cijferLijst;
 
     public Student1(String name, Integer identificatieCode) {
