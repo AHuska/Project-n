@@ -30,7 +30,7 @@ public class Main {
         Main.shutdown();
     }
 
-    private static void init() {
+    public static void init() {
         try {
             // create Gson instance
             Gson gson = new Gson();
@@ -58,7 +58,7 @@ public class Main {
         }
     }
 
-    private static void shutdown() {
+    public static void shutdown() {
         try {
             // create object arrays
             List<Student1> studentList = Student1.GeefStudentenTerug();

@@ -1,6 +1,5 @@
 package com.company.Users;
 
-import com.company.Menu;
 import com.company.Tests.Exam;
 
 import java.util.HashMap;
@@ -17,6 +16,10 @@ public class Student1 extends User {
         this.name = name;
         this.identificatieCode = identificatieCode;
         alleStudenten.add(this);
+    }
+
+    public static void deleteTest(Student1 test) {
+        alleStudenten.remove(test);
     }
 
     public void inschrijving() {
